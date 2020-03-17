@@ -104,8 +104,12 @@ class Compass : View {
         const val DEFAULT_HEIGHT_AND_WIDTH_DP = 50
     }
 
+    public var bitmap: Bitmap? = null
+        set(value) {
+            field = value
+        }
     private val compassBitmap: Bitmap by lazy {
-        BitmapFactory.decodeResource(resources, R.drawable.ic_compass)
+        bitmap ?: BitmapFactory.decodeResource(resources, R.drawable.ic_compass)
     }
 
     private val compassMatrix: Matrix = Matrix()
